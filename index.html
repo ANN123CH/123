@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>☕ 咖啡日常問卷調查（簡潔版）</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      background-color: #fff8f3;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h1 {
+      color: #6b4226;
+      font-size: 1.8rem;
+    }
+
+    form {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 1.2rem;
+      font-weight: bold;
+    }
+
+    .question {
+      margin-bottom: 1.5rem;
+    }
+
+    .question input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    button {
+      background-color: #6b4226;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #553320;
+    }
+
+    #result {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #fff4eb;
+      border-left: 5px solid #6b4226;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>☕ 咖啡日常問卷調查（簡潔版）</h1>
+  <p>感謝您撥冗參與這份超簡潔的咖啡飲用習慣問卷。預計填答時間約 1 分鐘。</p>
+<form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSch2CqyWCukGUgkhEZWWiLT9t6Jp552HAuJjUQQnNZ0RWDgcw/formResponse"
+   id="mG61Hd" method="POST">
+    div class="question"
+      <label>1. 您平常有喝咖啡的習慣嗎？</label>
+      <input type="radio" name="entry.2081148342" value="是" required /> 是
+      <input type="radio" name="entry.2081148342" value="否" /> 否
+    </div>
+
+    <div class="question">
+      <label>2. 您最常在哪裡喝咖啡？</label>
+      <input type="radio" name="entry.1623909204" value="家裡" required /> 家裡
+      <input type="radio" name="entry.1623909204" value="公司/學校" /> 公司/學校
+      <input type="radio" name="entry.1623909204" value="咖啡廳" /> 咖啡廳
+      <input type="radio" name="entry.1623909204" value="便利商店" /> 便利商店
+      <input type="radio" name="entry.1623909204" value="其他" /> 其他
+    </div>
+
+    <div class="question">
+      <label>3. 您喝咖啡的主要原因是？</label>
+      <input type="radio" name="entry.2103791989" value="提神醒腦" required /> 提神醒腦
+      <input type="radio" name="entry.2103791989" value="喜歡味道" /> 喜歡味道
+      <input type="radio" name="entry.2103791989" value="習慣性" /> 習慣性
+      <input type="radio" name="entry.2103791989" value="社交場合" /> 社交場合
+      <input type="radio" name="entry.2103791989" value="其他" /> 其他
+    </div>
+
+    <button type="submit">送出問卷</button>
+  </form>
+
+  <div id="result" style="display: none;"></div>
+
+  <script>
+    document.getElementById("coffeeForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+      const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+      const q3 = document.querySelector('input[name="q3"]:checked')?.value;
+
+      const result = `
+        <h2>✅ 感謝您的填答！以下是您的回覆：</h2>
+        <p><strong>1.</strong> ${q1}</p>
+        <p><strong>2.</strong> ${q2}</p>
+        <p><strong>3.</strong> ${q3}</p>
+      `;
+      const resultBox = document.getElementById("result");
+      resultBox.innerHTML = result;
+      resultBox.style.display = "block";
+
+      // reset form if needed
+      // document.getElementById("coffeeForm").reset();
+    });
+  </script>
+
+</body>
+</html>
